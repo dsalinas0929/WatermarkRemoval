@@ -1,0 +1,2 @@
+# Keep this directory in git
+# Add labeled dataset files (images and labels) inside train/ valid/ test/

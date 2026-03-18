@@ -68,16 +68,39 @@ temp_*.mp4
 weights/
 models/
 
-# Project-specific generated folders (frames, outputs, datasets)
+# Project-specific generated folders (keep some local/large artifacts ignored)
+# Note: dataset/, frames/, input_videos/, output_videos/, runs/, and samples/
+# are intentionally NOT ignored so empty folders (with .gitkeep) can be tracked.
 _videos/
-input_videos/
-output_videos/
 work_frames/
-frames/
-samples/
-dataset/
 POC/
-runs/
+
+# Track only the parent folders via .gitkeep; ignore any other files inside these dirs
+# (this keeps the empty directories in git while preventing large/generated files from
+# showing as untracked or being accidentally committed)
+dataset/*
+!dataset/.gitkeep
+dataset/train/*
+!dataset/train/.gitkeep
+dataset/valid/*
+!dataset/valid/.gitkeep
+dataset/test/*
+!dataset/test/.gitkeep
+
+frames/*
+!frames/.gitkeep
+
+input_videos/*
+!input_videos/.gitkeep
+
+output_videos/*
+!output_videos/.gitkeep
+
+runs/*
+!runs/.gitkeep
+
+samples/*
+!samples/.gitkeep
 
 # Local inpainting wrapper artifacts (if used for experimentation)
 simple-lama-inpainting/
