@@ -139,7 +139,7 @@ def inpaint_frame(frame, mask, idx):
 
     return out
 
-
+# Reassemble video from frames and attach original audio using ffmpeg
 def reassemble_and_attach_audio(frame_folder, original_video, output_video, fps):
     temp_video = 'temp_out.mp4'
     # write video from frames
