@@ -17,6 +17,7 @@ simple_lama = SimpleLama()
 model_name = "lama"
 
 
+# Initialize the inpainting model
 MODEL_PATH = 'runs/segment/train9/weights/best.pt'  # replace with your trained model when ready
 INPUT_FOLDER = 'input_videos'
 OUTPUT_FOLDER = 'output_videos'
@@ -44,6 +45,7 @@ def extract_frames(video_path):
     cap.release()
     return i
 
+# Detect watermark mask using YOLO segmentation model
 def detect_mask_yolo(frame):
     # returns binary mask same size as frame
     results = model.predict(frame, imgsz=640, device='cuda', conf=0.25)
@@ -81,6 +83,7 @@ def fallback_detect(frame):
     mask = cv2.dilate(mask, np.ones((3,3),np.uint8), iterations=2)
     return mask
 
+# Inpaint the frame using SimpleLama with the detected mask
 def inpaint_frame(frame, mask, idx):
     # Ensure mask is binary uint8 (0/255)
     import numpy as np
