@@ -154,6 +154,7 @@ def reassemble_and_attach_audio(frame_folder, original_video, output_video, fps)
     subprocess.call(cmd2)
     os.remove(temp_video)
 
+# Main processing function for each video file
 def process_file(video_file):
     print("Processing:", video_file)
     # clear frame folder
