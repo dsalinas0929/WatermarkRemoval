@@ -67,6 +67,7 @@ def detect_mask_yolo(frame):
             mask = cv2.bitwise_or(mask, m)
     return mask
 
+# Fallback detection if no model: simple thresholding to find "Sora" text (adjust as needed)
 def fallback_detect(frame):
     # VERY simple fallback: detect "Sora" white text via threshold near top areas
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
