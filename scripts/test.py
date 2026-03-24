@@ -6,6 +6,7 @@ model = YOLO('runs/segment/train9/weights/best.pt')
 # frame = cv2.imread('samples/temp_video_f000000.png')
 frame = cv2.imread('frames/0.png')
 
+# Predict mask
 results = model.predict(frame, imgsz=640, device='cuda', conf=0.25)
 mask = np.zeros(frame.shape[:2], dtype=np.uint8)
             

@@ -33,6 +33,7 @@ except Exception as e:
     print("No model loaded, will use fallback:", e)
     model = None
 
+# Extract frames from video and save to FRAME_FOLDER, return frame count
 def extract_frames(video_path):
     cap = cv2.VideoCapture(video_path)
     i = 0
