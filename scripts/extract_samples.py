@@ -8,6 +8,7 @@ FPS_SAMPLE = 1               # frames per second to extract
 
 os.makedirs(SAMPLES_FOLDER, exist_ok=True)
 
+# Extract frames at a specified rate (per_second) and save as PNG
 def sample_frames(video_path, out_dir, per_second=1):
     vid = cv2.VideoCapture(video_path)
     fps = vid.get(cv2.CAP_PROP_FPS) or 30.0

@@ -51,6 +51,7 @@ def detect_mask_yolo(frame):
     # returns binary mask same size as frame
     results = model.predict(frame, imgsz=640, device='cuda', conf=0.25)
     mask = np.zeros(frame.shape[:2], dtype=np.uint8)
+    # Combine masks from all detections (if multiple)
     for r in results:
         if r.masks is not None:
             m = r.masks.data.cpu().numpy().sum(axis=0)
