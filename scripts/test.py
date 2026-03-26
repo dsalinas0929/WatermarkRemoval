@@ -9,6 +9,7 @@ frame = cv2.imread('frames/0.png')
 # Predict mask
 results = model.predict(frame, imgsz=640, device='cuda', conf=0.25)
 mask = np.zeros(frame.shape[:2], dtype=np.uint8)
+print("Mask shape:", mask.shape)
             
 # Visualize
 result_frame = results[0].plot()

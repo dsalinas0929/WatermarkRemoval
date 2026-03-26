@@ -12,6 +12,7 @@ os.makedirs(SAMPLES_FOLDER, exist_ok=True)
 def sample_frames(video_path, out_dir, per_second=1):
     vid = cv2.VideoCapture(video_path)
     fps = vid.get(cv2.CAP_PROP_FPS) or 30.0
+    # Calculate interval in frames to achieve the desired sampling rate
     interval = max(1, int(round(fps / per_second)))
     idx = 0
     saved = 0
