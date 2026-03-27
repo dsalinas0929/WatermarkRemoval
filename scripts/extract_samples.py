@@ -10,6 +10,7 @@ os.makedirs(SAMPLES_FOLDER, exist_ok=True)
 
 # Extract frames at a specified rate (per_second) and save as PNG
 def sample_frames(video_path, out_dir, per_second=1):
+    print(f"Sampling {video_path} at {per_second} FPS")
     vid = cv2.VideoCapture(video_path)
     fps = vid.get(cv2.CAP_PROP_FPS) or 30.0
     # Calculate interval in frames to achieve the desired sampling rate
@@ -21,6 +22,7 @@ def sample_frames(video_path, out_dir, per_second=1):
         if not ret:
             break
         if idx % interval == 0:
+            # Save the frame as PNG
             fname = f"{Path(video_path).stem}_f{idx:06d}.png"
             cv2.imwrite(os.path.join(out_dir, fname), frame)
             saved += 1
