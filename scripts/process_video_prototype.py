@@ -67,6 +67,7 @@ def detect_mask_yolo(frame):
             kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kernel_size, kernel_size))
             m = cv2.dilate(m, kernel, iterations=1)
 
+            # Combine with overall mask
             mask = cv2.bitwise_or(mask, m)
     return mask
 
