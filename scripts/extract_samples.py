@@ -24,6 +24,7 @@ def sample_frames(video_path, out_dir, per_second=1):
             fname = f"{Path(video_path).stem}_f{idx:06d}.png"
             cv2.imwrite(os.path.join(out_dir, fname), frame)
             saved += 1
+            print(f"Saved frame {idx} as {fname}")
         idx += 1
     vid.release()
     return saved
